@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>同步汇报：最容易踩坑的汇报方式</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 800px; background: #f5f0e8; font-family: 'Noto Sans SC', sans-serif; }
+  .card { width: 800px; background: #faf7f2; }
+
+  .magazine-header { background: #111; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .magazine-name { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #ffd100; }
+  .issue-info { font-size: 11px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+
+  .hero { padding: 44px 40px 28px; border-bottom: 3px solid #111; }
+  .lesson-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; font-weight: 500; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; line-height: 1.05; color: #111; margin-bottom: 6px; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #555; font-style: italic; margin-bottom: 20px; }
+  .hero-divider { width: 60px; height: 3px; background: #ffd100; margin-bottom: 16px; }
+  .concept-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+  .hero-concept { font-size: 14px; line-height: 1.85; color: #333; max-width: 640px; }
+
+  .formula-block { background: #111; padding: 24px 40px; }
+  .formula-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 8px; }
+  .formula-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; }
+  .formula-text span { color: #ffd100; }
+
+  .steps-detail { padding: 0; }
+  .step-row { display: grid; grid-template-columns: 110px 1fr; gap: 0; border-bottom: 1px solid #e0d8cc; }
+  .step-row:last-child { border-bottom: none; }
+  .step-label-col { background: #ffd100; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 10px; text-align: center; }
+  .step-label-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #111; line-height: 1; }
+  .step-label-text { font-size: 11px; font-weight: 700; color: #111; letter-spacing: 1px; margin-top: 4px; }
+  .step-body { padding: 20px 28px; }
+  .step-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 8px; }
+  .step-detail { font-size: 13px; color: #444; line-height: 1.8; }
+  .step-detail strong { color: #111; }
+  .step-structure { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .struct-tag { font-size: 12px; padding: 4px 10px; background: #111; color: #ffd100; font-weight: 700; }
+
+  .pull-quote { background: #ffd100; padding: 28px 40px; text-align: center; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: #111; }
+  .pull-quote-text::before { content: '\201C'; font-size: 28px; vertical-align: -6px; margin-right: 4px; }
+  .pull-quote-text::after { content: '\201D'; font-size: 28px; vertical-align: -6px; margin-left: 4px; }
+
+  .footer { background: #111; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-series { font-size: 11px; letter-spacing: 2px; color: #666; text-transform: uppercase; }
+  .footer-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #ffd100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="magazine-header">
+    <div class="magazine-name">沟通基本功</div>
+    <div class="issue-info">第 07 讲 · 18讲系列</div>
+  </div>
+
+  <div class="hero">
+    <div class="lesson-tag">Lesson 07 · 同步汇报篇</div>
+    <div class="hero-title">同步汇报</div>
+    <div class="hero-subtitle">最容易踩坑的汇报方式，你中招了吗？</div>
+    <div class="hero-divider"></div>
+    <div class="concept-label">沟通理念</div>
+    <div class="hero-concept">好的汇报，不是说得多，而是说得准；不是汇报完就结束，而是汇报完就能决策。最常见的坑：流水账式汇报（把过程全说一遍）、结论藏在最后（让对方听完才知道重点）、没有预判追问（被问到就懵）。</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-label">沟通公式</div>
+    <div class="formula-text">高效汇报三步法 = <span>对齐目标</span> + <span>结论先行</span> + <span>预判追问</span></div>
+  </div>
+
+  <div class="steps-detail">
+    <div class="step-row">
+      <div class="step-label-col">
+        <div class="step-label-num">01</div>
+        <div class="step-label-text">汇报前</div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">对齐目标——确保方向不跑偏</div>
+        <div class="step-detail">汇报前先问自己两个问题：<strong>对方最关心的目标是什么？</strong>支撑这个目标需要哪些全局信息与关键依赖？带着这两个答案去准备内容，而不是把你知道的全部倒出来。</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-label-col">
+        <div class="step-label-num">02</div>
+        <div class="step-label-text">说重点</div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">结论先行——确保对方听得懂</div>
+        <div class="step-detail">黄金结构：先说结论，再展开要点，最后提风险。</div>
+        <div class="step-structure">
+          <div class="struct-tag">结论 1句话</div>
+          <div class="struct-tag">要点 2-3条</div>
+          <div class="struct-tag">风险 1-2个</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-label-col">
+        <div class="step-label-num">03</div>
+        <div class="step-label-text">接追问</div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">预判追问——确保对方信得过</div>
+        <div class="step-detail">提前准备对方可能追问的问题，现场接得住。回应追问的结构：<strong>承接关注 → 给出依据 → 提供选项 → 明确建议</strong>。被追问时不慌，是建立信任的关键时刻。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pull-quote-text">汇报完就能决策，才是好汇报</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-series">沟通基本功 · 18讲系列知识卡片</div>
+    <div class="footer-num">07</div>
+  </div>
+</div>
+</body>
+</html>

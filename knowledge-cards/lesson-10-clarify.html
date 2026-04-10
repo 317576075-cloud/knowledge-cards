@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澄清提问：怎么提问让理解秒对齐？</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 800px; background: #f5f0e8; font-family: 'Noto Sans SC', sans-serif; }
+  .card { width: 800px; background: #faf7f2; }
+
+  .magazine-header { background: #111; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .magazine-name { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #ffd100; }
+  .issue-info { font-size: 11px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+
+  .hero { padding: 44px 40px 28px; border-bottom: 3px solid #111; }
+  .lesson-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; font-weight: 500; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; line-height: 1.05; color: #111; margin-bottom: 6px; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #555; font-style: italic; margin-bottom: 20px; }
+  .hero-divider { width: 60px; height: 3px; background: #ffd100; margin-bottom: 16px; }
+  .concept-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+  .hero-concept { font-size: 14px; line-height: 1.85; color: #333; max-width: 640px; }
+
+  .formula-block { background: #111; padding: 24px 40px; }
+  .formula-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 8px; }
+  .formula-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; }
+  .formula-text span { color: #ffd100; }
+
+  .flow { display: flex; align-items: stretch; border-top: 1px solid #e0d8cc; }
+  .flow-item { flex: 1; padding: 24px 20px; border-right: 1px solid #e0d8cc; }
+  .flow-item:last-child { border-right: none; }
+  .flow-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: #ffd100; line-height: 1; margin-bottom: 8px; }
+  .flow-title { font-size: 14px; font-weight: 700; color: #111; margin-bottom: 8px; }
+  .flow-desc { font-size: 13px; color: #444; line-height: 1.75; }
+  .flow-example { font-size: 12px; color: #888; margin-top: 10px; padding: 8px 10px; background: #fffbe6; border-left: 2px solid #ffd100; font-style: italic; }
+
+  .contrast { padding: 20px 40px; background: #111; border-top: 1px solid #333; }
+  .contrast-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 12px; }
+  .contrast-row { display: flex; gap: 16px; }
+  .contrast-item { flex: 1; padding: 12px 14px; }
+  .contrast-item.bad { background: #1a1a1a; border-left: 2px solid #555; }
+  .contrast-item.good { background: #1a1a1a; border-left: 2px solid #ffd100; }
+  .contrast-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+  .contrast-tag.bad { color: #666; }
+  .contrast-tag.good { color: #ffd100; }
+  .contrast-text { font-size: 13px; color: #ccc; line-height: 1.6; }
+
+  .pull-quote { background: #ffd100; padding: 28px 40px; text-align: center; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: #111; }
+  .pull-quote-text::before { content: '\201C'; font-size: 28px; vertical-align: -6px; margin-right: 4px; }
+  .pull-quote-text::after { content: '\201D'; font-size: 28px; vertical-align: -6px; margin-left: 4px; }
+
+  .footer { background: #111; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-series { font-size: 11px; letter-spacing: 2px; color: #666; text-transform: uppercase; }
+  .footer-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #ffd100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="magazine-header">
+    <div class="magazine-name">沟通基本功</div>
+    <div class="issue-info">第 10 讲 · 18讲系列</div>
+  </div>
+
+  <div class="hero">
+    <div class="lesson-tag">Lesson 10 · 澄清提问篇</div>
+    <div class="hero-title">澄清提问</div>
+    <div class="hero-subtitle">怎么提问让理解秒对齐？</div>
+    <div class="hero-divider"></div>
+    <div class="concept-label">沟通理念</div>
+    <div class="hero-concept">澄清不是简单的复述，而是用一套结构化的思考和表达范式，把模糊的需求变具体，把工作的优先级捋明白，让所有的沟通都指向具有确定性的业务结果。好的澄清，能让双方在5分钟内达成原本需要反复沟通才能达到的共识。</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-label">沟通公式</div>
+    <div class="formula-text">澄清问题三步法 = <span>锁定事实</span> + <span>探明需求</span> + <span>确认共识</span></div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-num">01</div>
+      <div class="flow-title">锁定事实</div>
+      <div class="flow-desc">将主观评价转化为客观描述。把"感觉不对"变成"具体哪里不对"，把"做得不好"变成"哪个指标没达到"。</div>
+      <div class="flow-example">问："你说的'不够好'，具体是指哪个部分？是内容还是格式？"</div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">02</div>
+      <div class="flow-title">探明需求</div>
+      <div class="flow-desc">挖掘模糊指令背后的真实目标与优先级。问"为什么"而不只是"什么"，找到对方真正在意的是什么。</div>
+      <div class="flow-example">问："这件事最重要的目标是什么？如果只能做一件事，你希望优先保证哪个？"</div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">03</div>
+      <div class="flow-title">确认共识</div>
+      <div class="flow-desc">复述并明确结论与行动。用自己的话把理解说出来，让双方都知道"接下来做什么、谁来做、什么时候完成"。</div>
+      <div class="flow-example">说："我理解是……，我会在……之前完成……，对吗？"</div>
+    </div>
+  </div>
+
+  <div class="contrast">
+    <div class="contrast-label">澄清 vs 不澄清</div>
+    <div class="contrast-row">
+      <div class="contrast-item bad">
+        <div class="contrast-tag bad">❌ 不澄清，直接做</div>
+        <div class="contrast-text">按自己的理解做完，交付时才发现方向跑偏，返工成本极高。</div>
+      </div>
+      <div class="contrast-item good">
+        <div class="contrast-tag good">✓ 先澄清，再行动</div>
+        <div class="contrast-text">花5分钟对齐，节省5小时返工。澄清是最低成本的质量保障。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pull-quote-text">把模糊的需求变具体，让沟通指向确定性的结果</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-series">沟通基本功 · 18讲系列知识卡片</div>
+    <div class="footer-num">10</div>
+  </div>
+</div>
+</body>
+</html>

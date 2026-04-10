@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>进度催办：怎样让对方更积极地配合你？</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 800px; background: #f5f0e8; font-family: 'Noto Sans SC', sans-serif; }
+  .card { width: 800px; background: #faf7f2; }
+
+  .magazine-header { background: #111; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .magazine-name { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #ffd100; }
+  .issue-info { font-size: 11px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+
+  .hero { padding: 44px 40px 28px; border-bottom: 3px solid #111; }
+  .lesson-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; font-weight: 500; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; line-height: 1.05; color: #111; margin-bottom: 6px; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #555; font-style: italic; margin-bottom: 20px; }
+  .hero-divider { width: 60px; height: 3px; background: #ffd100; margin-bottom: 16px; }
+  .concept-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+  .hero-concept { font-size: 14px; line-height: 1.85; color: #333; max-width: 640px; }
+
+  .formula-block { background: #111; padding: 24px 40px; }
+  .formula-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 8px; }
+  .formula-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; }
+  .formula-text span { color: #ffd100; }
+
+  .steps { padding: 0; }
+  .step-item { display: flex; align-items: stretch; border-bottom: 1px solid #e0d8cc; }
+  .step-item:last-child { border-bottom: none; }
+  .step-num-col { width: 72px; flex-shrink: 0; background: #111; display: flex; align-items: center; justify-content: center; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #ffd100; }
+  .step-content { flex: 1; padding: 20px 28px; }
+  .step-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 6px; }
+  .step-title span { color: #b8960a; }
+  .step-desc { font-size: 13px; color: #444; line-height: 1.8; }
+  .step-contrast { display: flex; gap: 12px; margin-top: 10px; }
+  .contrast-bad { flex: 1; font-size: 12px; color: #999; padding: 8px 10px; background: #f5f0e8; }
+  .contrast-good { flex: 1; font-size: 12px; color: #333; padding: 8px 10px; background: #fffbe6; border-left: 2px solid #ffd100; }
+  .contrast-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+
+  .key-actions { background: #ffd100; padding: 20px 40px; display: flex; align-items: center; gap: 32px; }
+  .ka-label { font-size: 11px; font-weight: 700; color: #111; letter-spacing: 2px; text-transform: uppercase; flex-shrink: 0; }
+  .ka-items { display: flex; gap: 24px; }
+  .ka-item { display: flex; align-items: center; gap: 8px; }
+  .ka-dot { width: 8px; height: 8px; border-radius: 50%; background: #111; flex-shrink: 0; }
+  .ka-text { font-size: 15px; font-weight: 700; color: #111; }
+  .ka-desc { font-size: 12px; color: #555; }
+
+  .pull-quote { background: #111; padding: 28px 40px; text-align: center; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: #ffd100; }
+  .pull-quote-text::before { content: '\201C'; font-size: 28px; vertical-align: -6px; margin-right: 4px; }
+  .pull-quote-text::after { content: '\201D'; font-size: 28px; vertical-align: -6px; margin-left: 4px; }
+
+  .footer { background: #111; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; }
+  .footer-series { font-size: 11px; letter-spacing: 2px; color: #666; text-transform: uppercase; }
+  .footer-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #ffd100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="magazine-header">
+    <div class="magazine-name">沟通基本功</div>
+    <div class="issue-info">第 15 讲 · 18讲系列</div>
+  </div>
+
+  <div class="hero">
+    <div class="lesson-tag">Lesson 15 · 进度催办篇</div>
+    <div class="hero-title">进度催办</div>
+    <div class="hero-subtitle">怎样让对方更积极地配合你？</div>
+    <div class="hero-divider"></div>
+    <div class="concept-label">沟通理念</div>
+    <div class="hero-concept">催办不是让对方感受到你的压力，而是帮对方把"做不了"变成"做得了"。说白了，就是帮对方扫清障碍，降低他的行动成本。催得越急，对方越抗拒；帮得越到位，对方越配合。</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-label">沟通公式</div>
+    <div class="formula-text">催办三步法 = <span>重建目标</span> + <span>降低成本</span> + <span>最小化启动</span></div>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num-col"><div class="step-num">01</div></div>
+      <div class="step-content">
+        <div class="step-title"><span>重建目标</span>——把"你的任务"变成"他的价值"</div>
+        <div class="step-desc">让对方看到完成这件事对他自己的意义，而不只是你的需求。把"我需要你做"变成"这件事对你/我们都有价值"。</div>
+        <div class="step-contrast">
+          <div class="contrast-bad"><div class="contrast-label">❌ 施压式</div>"这件事你还没做，我这边等着呢。"</div>
+          <div class="contrast-good"><div class="contrast-label">✓ 价值式</div>"这件事完成后，你们团队的……就能推进了，我来帮你把……准备好。"</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num-col"><div class="step-num">02</div></div>
+      <div class="step-content">
+        <div class="step-title"><span>降低成本</span>——给对方铺台阶</div>
+        <div class="step-desc">主动提供资源、信息或支持，让对方感觉"做这件事不难"。很多时候对方拖延，不是不想做，而是不知道从哪里开始，或者缺少某个关键资源。</div>
+        <div class="step-contrast">
+          <div class="contrast-bad"><div class="contrast-label">❌ 只催不帮</div>"这件事你什么时候能做完？"</div>
+          <div class="contrast-good"><div class="contrast-label">✓ 帮他扫障碍</div>"我已经把你需要的数据整理好了，发给你了，你只需要……"</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num-col"><div class="step-num">03</div></div>
+      <div class="step-content">
+        <div class="step-title"><span>最小化启动</span>——拆到"今天能做"</div>
+        <div class="step-desc">把大任务拆成最小可执行单元，降低启动门槛。"今天能不能先做第一步"比"什么时候能全部完成"更容易得到正面回应。</div>
+        <div class="step-contrast">
+          <div class="contrast-bad"><div class="contrast-label">❌ 大而全</div>"这个方案什么时候能全部完成？"</div>
+          <div class="contrast-good"><div class="contrast-label">✓ 小而具体</div>"今天能不能先把第一部分的框架发给我看看？"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-actions">
+    <div class="ka-label">两个关键动作</div>
+    <div class="ka-items">
+      <div class="ka-item">
+        <div class="ka-dot"></div>
+        <div>
+          <div class="ka-text">当面说</div>
+          <div class="ka-desc">比发消息更有效，减少误解</div>
+        </div>
+      </div>
+      <div class="ka-item">
+        <div class="ka-dot"></div>
+        <div>
+          <div class="ka-text">马上做</div>
+          <div class="ka-desc">当场启动，避免再次拖延</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pull-quote-text">催办不是施压，而是帮对方把"做不了"变成"做得了"</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-series">沟通基本功 · 18讲系列知识卡片</div>
+    <div class="footer-num">15</div>
+  </div>
+</div>
+</body>
+</html>

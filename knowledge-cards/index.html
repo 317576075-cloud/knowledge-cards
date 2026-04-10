@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沟通基本功 · 18讲知识卡片</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  :root {
+    --yellow: #ffd100;
+    --black: #111111;
+    --cream: #faf7f2;
+    --bg: #f5f0e8;
+    --border: #e0d8cc;
+    --text: #333;
+    --muted: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+    min-width: 0;
+  }
+
+  /* ─── SCROLL PROGRESS ─── */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: var(--yellow);
+    z-index: 200;
+    transition: width 0.1s linear;
+    width: 0%;
+  }
+
+  /* ─── NAV ─── */
+  .site-nav {
+    position: fixed;
+    top: 3px; left: 0; right: 0;
+    z-index: 100;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    height: 52px;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--yellow); }
+  .nav-count {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #444;
+    white-space: nowrap;
+  }
+  .nav-count span { color: var(--yellow); font-weight: 700; }
+
+  /* ─── HERO ─── */
+  .hero-section {
+    padding: 100px 5vw 0;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  .hero-left {
+    padding: 60px 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(64px, 8vw, 108px);
+    font-weight: 900;
+    line-height: 0.95;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--yellow);
+    display: block;
+  }
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 36px;
+    border-left: 3px solid var(--yellow);
+    padding-left: 16px;
+  }
+  .hero-desc {
+    font-size: 14px;
+    line-height: 2;
+    color: #666;
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 0;
+  }
+  .stat-item {
+    padding: 20px 28px;
+    border: 1px solid #222;
+    border-right: none;
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: 1px solid #222; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* Hero Right — floating cards */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .float-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 40px;
+    width: 100%;
+  }
+  .float-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 24px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+  }
+  .float-card:hover {
+    background: #222;
+    border-color: var(--yellow);
+    transform: translateY(-4px);
+  }
+  .float-card.accent {
+    background: var(--yellow);
+    border-color: var(--yellow);
+  }
+  .float-card.accent:hover { background: #e6bc00; }
+  .float-card .fc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    display: block;
+  }
+  .float-card.accent .fc-num { color: var(--black); }
+  .float-card .fc-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 8px;
+    display: block;
+  }
+  .float-card.accent .fc-title { color: var(--black); }
+  .float-card .fc-sub {
+    font-size: 11px;
+    color: #555;
+    margin-top: 6px;
+    line-height: 1.5;
+    display: block;
+  }
+  .float-card.accent .fc-sub { color: rgba(0,0,0,0.5); }
+  .float-card .fc-arrow {
+    font-size: 18px;
+    color: var(--yellow);
+    margin-top: 16px;
+    display: block;
+    transition: transform 0.2s;
+  }
+  .float-card.accent .fc-arrow { color: var(--black); }
+  .float-card:hover .fc-arrow { transform: translateX(6px); }
+
+  /* ─── TICKER ─── */
+  .ticker-wrap {
+    background: var(--yellow);
+    overflow: hidden;
+    padding: 12px 0;
+    white-space: nowrap;
+  }
+  .ticker-track {
+    display: inline-flex;
+    gap: 0;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0 32px;
+    border-right: 2px solid rgba(0,0,0,0.15);
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    padding: 64px 5vw 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.05;
+  }
+  .section-title span { color: var(--yellow); }
+
+  /* ─── SEARCH + FILTER ─── */
+  .controls-wrap {
+    padding: 0 5vw 32px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    padding: 0 16px;
+    gap: 10px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 360px;
+  }
+  .search-icon { font-size: 14px; color: var(--muted); }
+  .search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    color: var(--black);
+    padding: 12px 0;
+    outline: none;
+  }
+  .search-input::placeholder { color: #ccc; }
+  .search-clear {
+    font-size: 16px;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    display: none;
+  }
+  .search-clear.visible { display: block; }
+  .filter-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--black); color: var(--black); }
+  .filter-btn.active { background: var(--black); color: var(--yellow); border-color: var(--black); }
+
+  /* ─── CARDS GRID ─── */
+  .cards-section {
+    padding: 0 5vw 80px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2px;
+  }
+  .card-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .card-item:hover::after { transform: scaleX(1); }
+  .card-item:hover {
+    background: #fff;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
+  .card-item.hidden { display: none; }
+  .card-header {
+    background: var(--black);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+  }
+  .card-tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+  }
+  .card-body { padding: 20px; }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .card-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .card-concept {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #555;
+    border-left: 2px solid var(--yellow);
+    padding-left: 10px;
+  }
+  .card-footer {
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-category {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .card-arrow {
+    font-size: 16px;
+    color: var(--yellow);
+    font-weight: 700;
+    transition: transform 0.2s;
+  }
+  .card-item:hover .card-arrow { transform: translateX(5px); }
+
+  /* ─── PLAYGROUND ─── */
+  .playground-section {
+    background: var(--black);
+    padding: 80px 5vw;
+  }
+  .pg-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .pg-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+  .pg-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+  }
+  .pg-desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+    align-self: end;
+  }
+
+  /* Playground grid */
+  .pg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+  .pg-block {
+    background: #161616;
+    border: 1px solid #222;
+    padding: 32px;
+  }
+  .pg-block-full {
+    background: #161616;
+    border: 1px solid #222;
+    padding: 32px;
+  }
+  .pg-block-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .pg-block-desc {
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  /* Scenario Picker */
+  .scenario-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .scenario-chip {
+    padding: 8px 14px;
+    border: 1px solid #2a2a2a;
+    background: transparent;
+    color: #666;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1.4;
+    text-align: left;
+  }
+  .scenario-chip:hover { border-color: var(--yellow); color: #aaa; }
+  .scenario-chip.active { background: var(--yellow); color: var(--black); border-color: var(--yellow); font-weight: 700; }
+  .scenario-result {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    min-height: 100px;
+    transition: opacity 0.3s;
+  }
+  .sr-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+  .sr-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .sr-text {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .sr-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .sr-link:hover { opacity: 0.85; }
+
+  /* Formula Builder */
+  .fb-slots {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .fb-slot {
+    min-width: 120px;
+    padding: 10px 14px;
+    border: 1px dashed #333;
+    background: #111;
+    color: #444;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .fb-slot.filled { border-style: solid; border-color: var(--yellow); color: var(--yellow); font-weight: 700; }
+  .fb-slot:hover:not(.filled) { border-color: #555; color: #777; }
+  .fb-op { font-size: 18px; color: #333; }
+  .fb-result {
+    min-width: 140px;
+    padding: 10px 14px;
+    border: 1px solid #222;
+    background: #0d0d0d;
+    color: #444;
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+  }
+  .fb-result.ready { border-color: var(--yellow); color: var(--yellow); font-weight: 700; font-style: normal; }
+  .fb-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .fb-option {
+    padding: 5px 12px;
+    border: 1px solid #2a2a2a;
+    background: transparent;
+    color: #555;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .fb-option:hover { border-color: #444; color: #999; }
+  .fb-option.used { opacity: 0.25; pointer-events: none; }
+  .fb-reset {
+    padding: 6px 16px;
+    background: transparent;
+    border: 1px solid #2a2a2a;
+    color: #444;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .fb-reset:hover { border-color: #555; color: #888; }
+
+  /* Random Spinner */
+  .spinner-wrap {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .spinner-left { flex: 0 0 auto; max-width: 400px; }
+  .spinner-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .spinner-desc {
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .spin-btn {
+    padding: 12px 28px;
+    background: var(--yellow);
+    color: var(--black);
+    border: none;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.15s;
+  }
+  .spin-btn:hover { opacity: 0.85; }
+  .spin-btn:active { transform: scale(0.97); }
+  .spin-display {
+    width: 240px;
+    flex-shrink: 0;
+    background: #111;
+    border: 2px solid #222;
+    padding: 32px 24px;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.3s;
+  }
+  .spin-display.spinning { border-color: var(--yellow); }
+  .spin-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .spin-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .spin-sub { font-size: 11px; color: #555; line-height: 1.5; }
+  .spin-link {
+    display: none;
+    margin-top: 14px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .spin-link:hover { border-color: var(--yellow); }
+  .spin-link.visible { display: inline-block; }
+
+  /* ─── QUICK JUMP ─── */
+  .jump-section {
+    padding: 64px 5vw 80px;
+  }
+  .jump-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    margin-top: 40px;
+  }
+  .jump-dot {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    aspect-ratio: unset;
+    min-height: 100px;
+  }
+  .jump-dot:hover {
+    background: var(--yellow);
+    border-color: var(--black);
+  }
+  .jump-dot:hover .jd-num { color: var(--black); }
+  .jump-dot:hover .jd-name { color: var(--black); }
+  .jd-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .jd-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--black);
+    text-align: center;
+    line-height: 1.3;
+    transition: color 0.2s;
+  }
+
+  /* ─── QUOTE WALL ─── */
+  .quote-section {
+    background: var(--yellow);
+    padding: 64px 5vw;
+  }
+  .quote-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    margin-bottom: 32px;
+  }
+  .quote-carousel { position: relative; overflow: hidden; }
+  .quote-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .quote-slide { min-width: 100%; padding-right: 5vw; }
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .quote-text::before { content: '\201C'; }
+  .quote-text::after { content: '\201D'; }
+  .quote-source { font-size: 12px; color: rgba(0,0,0,0.45); letter-spacing: 1px; }
+  .quote-source strong { color: var(--black); }
+  .quote-nav { display: flex; gap: 8px; margin-top: 28px; }
+  .quote-dot {
+    width: 8px; height: 8px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .quote-dot.active { background: var(--black); width: 24px; border-radius: 4px; }
+
+/* ─── FOOTER ─── */
+.site-footer {
+    background: var(--black);
+    padding: 40px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid var(--yellow);
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .footer-info { font-size: 11px; letter-spacing: 1px; color: #444; }
+  .footer-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: #1e1e1e;
+  }
+
+  /* ─── TOOLTIP ─── */
+  .tooltip {
+    position: fixed;
+    background: var(--black);
+    color: var(--yellow);
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 999;
+    white-space: nowrap;
+  }
+  .tooltip.visible { opacity: 1; }
+
+  /* ─── CARD COUNT BADGE ─── */
+  .count-badge {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    align-self: flex-end;
+    padding-bottom: 4px;
+  }
+  .count-badge span { color: var(--yellow); font-weight: 700; font-size: 14px; }
+
+  /* ─── DIVIDER LINE ─── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 5vw;
+  }
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Tooltip -->
+<div class="tooltip" id="tooltip"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="site-nav">
+  <div class="nav-brand">沟通基本功</div>
+  <ul class="nav-links">
+    <li><a href="#cards">卡片</a></li>
+    <li><a href="#playground">Playground</a></li>
+    <li><a href="#quotes">金句</a></li>
+  </ul>
+  <div class="nav-count">已收录 <span>18</span> 讲</div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero-section">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Communication Fundamentals · 18 Lessons</div>
+    <h1 class="hero-title">沟通<em>基本功</em></h1>
+    <p class="hero-subtitle">职场沟通的 18 个核心场景</p>
+    <p class="hero-desc">从识人到处理冲突，每一张卡片都是一个真实的职场沟通场景。不是理论，是可以立刻用上的方法。</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">18</span>
+        <span class="stat-label">核心场景</span>
+      </div>
+      <div class="stat-item">
+<span class="stat-num">3</span>
+<span class="stat-label">场景分类</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">实用公式</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="float-grid">
+        <a class="float-card" href="lesson-01-disc.html" target="_blank">
+          <span class="fc-num">01</span>
+          <span class="fc-title">识人</span>
+          <span class="fc-sub">用 DiSC 模型破解沟通密码</span>
+          <span class="fc-arrow">→</span>
+        </a>
+        <a class="float-card accent" href="lesson-09-meeting.html" target="_blank">
+          <span class="fc-num">09</span>
+          <span class="fc-title">会议发言</span>
+          <span class="fc-sub">让你的声音被听见</span>
+          <span class="fc-arrow">→</span>
+        </a>
+        <a class="float-card" href="lesson-12-persuade.html" target="_blank">
+          <span class="fc-num">12</span>
+          <span class="fc-title">说服他人</span>
+          <span class="fc-sub">让对方主动说"好"</span>
+          <span class="fc-arrow">→</span>
+        </a>
+        <a class="float-card" href="lesson-18-conflict.html" target="_blank">
+          <span class="fc-num">18</span>
+          <span class="fc-title">处理冲突</span>
+          <span class="fc-sub">怎么在冲突里体面收场？</span>
+          <span class="fc-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">识人</span>
+    <span class="ticker-item">破冰</span>
+    <span class="ticker-item">倾听</span>
+    <span class="ticker-item">回应</span>
+    <span class="ticker-item">接任务</span>
+    <span class="ticker-item">请教求助</span>
+    <span class="ticker-item">同步汇报</span>
+    <span class="ticker-item">回应批评</span>
+    <span class="ticker-item">会议发言</span>
+    <span class="ticker-item">澄清提问</span>
+    <span class="ticker-item">不同意见</span>
+    <span class="ticker-item">说服他人</span>
+    <span class="ticker-item">给建议</span>
+    <span class="ticker-item">点赞</span>
+    <span class="ticker-item">催办</span>
+    <span class="ticker-item">道歉</span>
+    <span class="ticker-item">拒绝</span>
+    <span class="ticker-item">处理冲突</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">识人</span>
+    <span class="ticker-item">破冰</span>
+    <span class="ticker-item">倾听</span>
+    <span class="ticker-item">回应</span>
+    <span class="ticker-item">接任务</span>
+    <span class="ticker-item">请教求助</span>
+    <span class="ticker-item">同步汇报</span>
+    <span class="ticker-item">回应批评</span>
+    <span class="ticker-item">会议发言</span>
+    <span class="ticker-item">澄清提问</span>
+    <span class="ticker-item">不同意见</span>
+    <span class="ticker-item">说服他人</span>
+    <span class="ticker-item">给建议</span>
+    <span class="ticker-item">点赞</span>
+    <span class="ticker-item">催办</span>
+    <span class="ticker-item">道歉</span>
+    <span class="ticker-item">拒绝</span>
+    <span class="ticker-item">处理冲突</span>
+  </div>
+</div>
+
+<!-- ═══ CARDS ═══ -->
+<div class="section-header" id="cards">
+  <div>
+    <div class="section-eyebrow">All Lessons · 全部卡片</div>
+    <div class="section-title">18 张<span>知识卡片</span></div>
+  </div>
+  <div class="count-badge">共 <span id="cardCount">18</span> 张</div>
+</div>
+
+<div class="controls-wrap">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="searchInput" type="text" placeholder="搜索卡片…">
+    <button class="search-clear" id="searchClear">×</button>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="relation">建立关系</button>
+    <button class="filter-btn" data-filter="upward">向上沟通</button>
+    <button class="filter-btn" data-filter="lateral">横向沟通</button>
+  </div>
+</div>
+
+<section class="cards-section">
+  <div class="cards-grid" id="cardsGrid">
+
+    <a class="card-item" href="lesson-01-disc.html" target="_blank" data-category="relation" data-keywords="识人 disc 行为 掌控 影响 稳健 谨慎">
+      <div class="card-header"><div class="card-num">01</div><div class="card-tag">识人篇</div></div>
+      <div class="card-body">
+        <div class="card-title">识人</div>
+        <div class="card-subtitle">用 DiSC 模型破解沟通密码</div>
+        <div class="card-concept">有效的沟通，不是坚持用自己最习惯的频道广播，而是用跟对方更同频的方式来沟通。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">建立关系</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-02-icebreak.html" target="_blank" data-category="relation" data-keywords="破冰 关系 升温 共同点 赞美 好奇">
+      <div class="card-header"><div class="card-num">02</div><div class="card-tag">破冰篇</div></div>
+      <div class="card-body">
+        <div class="card-title">破冰</div>
+        <div class="card-subtitle">三步让职场关系快速升温</div>
+        <div class="card-concept">破冰不是表演热情，而是让对方感到被看见、被尊重，从而愿意打开。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">建立关系</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-03-listen.html" target="_blank" data-category="relation" data-keywords="倾听 专注 回应 理解 情绪 共情">
+      <div class="card-header"><div class="card-num">03</div><div class="card-tag">倾听篇</div></div>
+      <div class="card-body">
+        <div class="card-title">倾听</div>
+        <div class="card-subtitle">听懂话背后的话</div>
+        <div class="card-concept">真正的倾听，不是等待说话的机会，而是真正理解对方想表达的意思。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">建立关系</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-04-respond.html" target="_blank" data-category="relation" data-keywords="回应 反馈 确认 情绪 表达 感受">
+      <div class="card-header"><div class="card-num">04</div><div class="card-tag">回应篇</div></div>
+      <div class="card-body">
+        <div class="card-title">回应</div>
+        <div class="card-subtitle">让对方感到被接住</div>
+        <div class="card-concept">好的回应不是给答案，而是让对方感到自己被理解、被接住。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">建立关系</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-05-task.html" target="_blank" data-category="upward" data-keywords="接任务 收到 确认 目标 资源 优先级">
+      <div class="card-header"><div class="card-num">05</div><div class="card-tag">接任务篇</div></div>
+      <div class="card-body">
+        <div class="card-title">接任务</div>
+        <div class="card-subtitle">除了"收到"，还能回复啥？</div>
+        <div class="card-concept">接任务不只是接指令，而是接清楚目标、资源和优先级，让执行有方向。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">向上沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-06-consult.html" target="_blank" data-category="upward" data-keywords="请教 求助 问题 方案 思考 尊重">
+      <div class="card-header"><div class="card-num">06</div><div class="card-tag">请教篇</div></div>
+      <div class="card-body">
+        <div class="card-title">请教求助</div>
+        <div class="card-subtitle">怎么问才不显得没脑子？</div>
+        <div class="card-concept">好的请教，是带着思考去问，而不是把问题直接甩给对方。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">向上沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-07-report.html" target="_blank" data-category="upward" data-keywords="汇报 同步 进度 结论 问题 方案">
+      <div class="card-header"><div class="card-num">07</div><div class="card-tag">汇报篇</div></div>
+      <div class="card-body">
+        <div class="card-title">同步汇报</div>
+        <div class="card-subtitle">让上级永远不焦虑</div>
+        <div class="card-concept">汇报的本质是管理预期，让上级对进展有掌控感，而不是等到出问题才知道。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">向上沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-08-criticism.html" target="_blank" data-category="upward" data-keywords="批评 反馈 接受 改进 情绪 防御">
+      <div class="card-header"><div class="card-num">08</div><div class="card-tag">批评篇</div></div>
+      <div class="card-body">
+        <div class="card-title">回应批评</div>
+        <div class="card-subtitle">被批评时怎么不崩？</div>
+        <div class="card-concept">被批评时，第一反应不是辩解，而是先接住情绪，再看清信息。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">向上沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-09-meeting.html" target="_blank" data-category="lateral" data-keywords="会议 发言 观点 表达 存在感 时机">
+      <div class="card-header"><div class="card-num">09</div><div class="card-tag">会议篇</div></div>
+      <div class="card-body">
+        <div class="card-title">会议发言</div>
+        <div class="card-subtitle">让你的声音被听见</div>
+        <div class="card-concept">会议里的存在感，不是靠说话多，而是靠说得准、说得有价值。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-10-clarify.html" target="_blank" data-category="lateral" data-keywords="澄清 提问 对齐 理解 确认 信息">
+      <div class="card-header"><div class="card-num">10</div><div class="card-tag">澄清篇</div></div>
+      <div class="card-body">
+        <div class="card-title">澄清提问</div>
+        <div class="card-subtitle">怎么提问让理解秒对齐？</div>
+        <div class="card-concept">好的提问不是质疑，而是帮助双方把模糊的理解变成清晰的共识。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-11-disagree.html" target="_blank" data-category="lateral" data-keywords="不同意见 异议 表达 立场 尊重 建设性">
+      <div class="card-header"><div class="card-num">11</div><div class="card-tag">异议篇</div></div>
+      <div class="card-body">
+        <div class="card-title">不同意见</div>
+        <div class="card-subtitle">怎么说"我不同意"不伤感情？</div>
+        <div class="card-concept">表达异议的艺术，是让对方感到你在解决问题，而不是在攻击他。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-12-persuade.html" target="_blank" data-category="lateral" data-keywords="说服 影响 利益 逻辑 情感 认同">
+      <div class="card-header"><div class="card-num">12</div><div class="card-tag">说服篇</div></div>
+      <div class="card-body">
+        <div class="card-title">说服他人</div>
+        <div class="card-subtitle">让对方主动说"好"</div>
+        <div class="card-concept">真正的说服，不是用道理压倒对方，而是让对方觉得这个决定是他自己做的。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-13-advice.html" target="_blank" data-category="lateral" data-keywords="建议 反馈 给意见 时机 方式 接受">
+      <div class="card-header"><div class="card-num">13</div><div class="card-tag">建议篇</div></div>
+      <div class="card-body">
+        <div class="card-title">给建议</div>
+        <div class="card-subtitle">怎么给建议不让人反感？</div>
+        <div class="card-concept">好的建议是邀请，不是命令。让对方感到你在帮他，而不是在评判他。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-14-praise.html" target="_blank" data-category="lateral" data-keywords="点赞 表扬 认可 具体 真诚 激励">
+      <div class="card-header"><div class="card-num">14</div><div class="card-tag">点赞篇</div></div>
+      <div class="card-body">
+        <div class="card-title">点赞</div>
+        <div class="card-subtitle">夸人夸到心坎里</div>
+        <div class="card-concept">有效的表扬，不是"你真棒"，而是具体说出你看见了什么、为什么有价值。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-15-followup.html" target="_blank" data-category="lateral" data-keywords="催办 跟进 提醒 进度 关系 方式">
+      <div class="card-header"><div class="card-num">15</div><div class="card-tag">催办篇</div></div>
+      <div class="card-body">
+        <div class="card-title">催办</div>
+        <div class="card-subtitle">催人不催坏关系</div>
+        <div class="card-concept">催办的本质是协作，不是施压。让对方感到你在推进共同目标，而不是在追责。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-16-apology.html" target="_blank" data-category="lateral" data-keywords="道歉 认错 修复 关系 真诚 责任">
+      <div class="card-header"><div class="card-num">16</div><div class="card-tag">道歉篇</div></div>
+      <div class="card-body">
+        <div class="card-title">道歉</div>
+        <div class="card-subtitle">道歉道到对方真的释怀</div>
+        <div class="card-concept">真正的道歉，不是为了让自己好受，而是为了让对方感到被重视、被修复。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-17-decline.html" target="_blank" data-category="lateral" data-keywords="拒绝 说不 边界 关系 方式 替代">
+      <div class="card-header"><div class="card-num">17</div><div class="card-tag">拒绝篇</div></div>
+      <div class="card-body">
+        <div class="card-title">拒绝</div>
+        <div class="card-subtitle">说"不"而不伤感情</div>
+        <div class="card-concept">拒绝不是关门，而是在维护关系的前提下，清晰表达自己的边界。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card-item" href="lesson-18-conflict.html" target="_blank" data-category="lateral" data-keywords="冲突 矛盾 处理 收场 情绪 解决">
+      <div class="card-header"><div class="card-num">18</div><div class="card-tag">冲突篇</div></div>
+      <div class="card-body">
+        <div class="card-title">处理冲突</div>
+        <div class="card-subtitle">怎么在冲突里体面收场？</div>
+        <div class="card-concept">冲突的终点不是分出对错，而是找到双方都能接受的出路，并保住关系。</div>
+      </div>
+      <div class="card-footer"><span class="card-category">横向沟通</span><span class="card-arrow">→</span></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ PLAYGROUND ═══ -->
+<section class="playground-section" id="playground">
+  <div class="pg-header">
+    <div>
+      <div class="pg-eyebrow">Interactive · Playground</div>
+      <div class="pg-title">动手<br>玩一玩</div>
+    </div>
+    <div class="pg-desc">三个小工具，帮你把知识用起来。<br>找场景、拼公式、随机抽卡——<br>让学习变得有点好玩。</div>
+  </div>
+
+  <!-- Row 1: Scenario + Formula -->
+  <div class="pg-grid">
+
+    <!-- Scenario Picker -->
+    <div class="pg-block">
+      <div class="pg-block-title">场景匹配</div>
+      <div class="pg-block-desc">遇到这种情况，该看哪张卡？</div>
+      <div class="scenario-chips">
+        <button class="scenario-chip" data-lesson="05" data-title="接任务" data-file="lesson-05-task.html" data-tip="接到任务时，除了说"收到"，你还可以用3A公式确认目标、资源和优先级，让执行更有方向。">刚接到一个新任务，不知道怎么回复</button>
+        <button class="scenario-chip" data-lesson="08" data-title="回应批评" data-file="lesson-08-criticism.html" data-tip="被批评时先别急着辩解。用"接住-理解-行动"三步，先稳住情绪，再看清信息，最后给出改进方案。">被上级当众批评，很委屈</button>
+        <button class="scenario-chip" data-lesson="11" data-title="不同意见" data-file="lesson-11-disagree.html" data-tip="表达异议时，先认可对方的出发点，再用"我有个不同的角度"引出你的观点，让对方感到你在解决问题而非攻击他。">开会时想反驳同事但怕尴尬</button>
+        <button class="scenario-chip" data-lesson="15" data-title="催办" data-file="lesson-15-followup.html" data-tip="催办时聚焦在"推进共同目标"而非"追责"。用进度确认代替催促，给对方台阶下，同时推动事情往前走。">需要催同事交东西但怕关系变僵</button>
+        <button class="scenario-chip" data-lesson="17" data-title="拒绝" data-file="lesson-17-decline.html" data-tip="拒绝时用"理解-边界-替代"结构：先表达理解对方的需求，再清晰说明自己的限制，最后提供替代方案或建议。">想拒绝一个请求但不知道怎么开口</button>
+        <button class="scenario-chip" data-lesson="07" data-title="同步汇报" data-file="lesson-07-report.html" data-tip="汇报时先说结论，再给依据，最后说风险和方案。让上级在30秒内就能掌握全局，而不是等你讲完才知道重点。">要向上级汇报项目进展</button>
+        <button class="scenario-chip" data-lesson="02" data-title="破冰" data-file="lesson-02-icebreak.html" data-tip="破冰三步：找共同点、给真诚赞美、问开放性问题。不是表演热情，而是让对方感到被看见。">刚加入新团队，不知道怎么融入</button>
+        <button class="scenario-chip" data-lesson="16" data-title="道歉" data-file="lesson-16-apology.html" data-tip="道歉四要素：承认事实、表达理解对方感受、说明改进、请求原谅。缺少任何一步，道歉都可能显得敷衍。">搞砸了一件事，需要道歉</button>
+      </div>
+      <div class="scenario-result" id="scenarioResult">
+        <div style="color:#333;font-size:12px;font-style:italic;">点击上方场景，获取对应卡片推荐 →</div>
+      </div>
+    </div>
+
+    <!-- Formula Builder -->
+    <div class="pg-block">
+      <div class="pg-block-title">公式拼接器</div>
+      <div class="pg-block-desc">选择要素，拼出你的沟通公式</div>
+      <div class="fb-slots" id="fbSlots">
+        <div class="fb-slot" id="slot0" onclick="openSlot(0)">选择要素</div>
+        <div class="fb-op">+</div>
+        <div class="fb-slot" id="slot1" onclick="openSlot(1)">选择要素</div>
+        <div class="fb-op">+</div>
+        <div class="fb-slot" id="slot2" onclick="openSlot(2)">选择要素</div>
+        <div class="fb-op">=</div>
+        <div class="fb-result" id="fbResult">等待组合…</div>
+      </div>
+      <div class="fb-options" id="fbOptions">
+        <button class="fb-option" onclick="selectOption(this,'识别行为倾向')">识别行为倾向</button>
+        <button class="fb-option" onclick="selectOption(this,'适配沟通策略')">适配沟通策略</button>
+        <button class="fb-option" onclick="selectOption(this,'找共同点')">找共同点</button>
+        <button class="fb-option" onclick="selectOption(this,'真诚赞美')">真诚赞美</button>
+        <button class="fb-option" onclick="selectOption(this,'开放提问')">开放提问</button>
+        <button class="fb-option" onclick="selectOption(this,'先说结论')">先说结论</button>
+        <button class="fb-option" onclick="selectOption(this,'给出依据')">给出依据</button>
+        <button class="fb-option" onclick="selectOption(this,'说明风险')">说明风险</button>
+        <button class="fb-option" onclick="selectOption(this,'接住情绪')">接住情绪</button>
+        <button class="fb-option" onclick="selectOption(this,'理解信息')">理解信息</button>
+        <button class="fb-option" onclick="selectOption(this,'给出行动')">给出行动</button>
+        <button class="fb-option" onclick="selectOption(this,'认可出发点')">认可出发点</button>
+        <button class="fb-option" onclick="selectOption(this,'表达异议')">表达异议</button>
+        <button class="fb-option" onclick="selectOption(this,'提出方案')">提出方案</button>
+        <button class="fb-option" onclick="selectOption(this,'承认事实')">承认事实</button>
+        <button class="fb-option" onclick="selectOption(this,'表达理解')">表达理解</button>
+        <button class="fb-option" onclick="selectOption(this,'说明改进')">说明改进</button>
+        <button class="fb-option" onclick="selectOption(this,'请求原谅')">请求原谅</button>
+      </div>
+      <button class="fb-reset" onclick="resetFormula()">重置</button>
+    </div>
+  </div>
+
+  <!-- Row 2: Random Spinner (full width) -->
+  <div class="pg-block-full" style="margin-top:2px;">
+    <div class="spinner-wrap">
+      <div class="spinner-left">
+        <div class="spinner-title">随机抽卡</div>
+        <div class="spinner-desc">不知道从哪张开始？<br>让命运决定你今天学什么。</div>
+        <button class="spin-btn" onclick="spinCard()">🎲 随机抽一张</button>
+      </div>
+      <div class="spin-display" id="spinDisplay">
+        <div class="spin-num" id="spinNum">?</div>
+        <div class="spin-name" id="spinName">点击抽卡</div>
+        <div class="spin-sub" id="spinSub">18张卡片等你探索</div>
+        <a class="spin-link" id="spinLink" href="#" target="_blank">打开这张卡片 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK JUMP ═══ -->
+<section class="jump-section">
+  <div class="section-eyebrow">Quick Jump · 快速跳转</div>
+  <div class="section-title">18 讲<span>一览</span></div>
+  <div class="jump-grid" id="jumpGrid">
+    <a class="jump-dot" href="lesson-01-disc.html" target="_blank"><div class="jd-num">01</div><div class="jd-name">识人</div></a>
+    <a class="jump-dot" href="lesson-02-icebreak.html" target="_blank"><div class="jd-num">02</div><div class="jd-name">破冰</div></a>
+    <a class="jump-dot" href="lesson-03-listen.html" target="_blank"><div class="jd-num">03</div><div class="jd-name">倾听</div></a>
+    <a class="jump-dot" href="lesson-04-respond.html" target="_blank"><div class="jd-num">04</div><div class="jd-name">回应</div></a>
+    <a class="jump-dot" href="lesson-05-task.html" target="_blank"><div class="jd-num">05</div><div class="jd-name">接任务</div></a>
+    <a class="jump-dot" href="lesson-06-consult.html" target="_blank"><div class="jd-num">06</div><div class="jd-name">请教</div></a>
+    <a class="jump-dot" href="lesson-07-report.html" target="_blank"><div class="jd-num">07</div><div class="jd-name">汇报</div></a>
+    <a class="jump-dot" href="lesson-08-criticism.html" target="_blank"><div class="jd-num">08</div><div class="jd-name">回应批评</div></a>
+    <a class="jump-dot" href="lesson-09-meeting.html" target="_blank"><div class="jd-num">09</div><div class="jd-name">会议发言</div></a>
+    <a class="jump-dot" href="lesson-10-clarify.html" target="_blank"><div class="jd-num">10</div><div class="jd-name">澄清提问</div></a>
+    <a class="jump-dot" href="lesson-11-disagree.html" target="_blank"><div class="jd-num">11</div><div class="jd-name">不同意见</div></a>
+    <a class="jump-dot" href="lesson-12-persuade.html" target="_blank"><div class="jd-num">12</div><div class="jd-name">说服他人</div></a>
+    <a class="jump-dot" href="lesson-13-advice.html" target="_blank"><div class="jd-num">13</div><div class="jd-name">给建议</div></a>
+    <a class="jump-dot" href="lesson-14-praise.html" target="_blank"><div class="jd-num">14</div><div class="jd-name">点赞</div></a>
+    <a class="jump-dot" href="lesson-15-followup.html" target="_blank"><div class="jd-num">15</div><div class="jd-name">催办</div></a>
+    <a class="jump-dot" href="lesson-16-apology.html" target="_blank"><div class="jd-num">16</div><div class="jd-name">道歉</div></a>
+    <a class="jump-dot" href="lesson-17-decline.html" target="_blank"><div class="jd-num">17</div><div class="jd-name">拒绝</div></a>
+    <a class="jump-dot" href="lesson-18-conflict.html" target="_blank"><div class="jd-num">18</div><div class="jd-name">处理冲突</div></a>
+  </div>
+</section>
+
+<!-- ═══ QUOTE WALL ═══ -->
+<section class="quote-section" id="quotes">
+  <div class="quote-eyebrow">Quote Wall · 金句墙</div>
+  <div class="quote-carousel">
+    <div class="quote-track" id="quoteTrack">
+      <div class="quote-slide">
+        <div class="quote-text">有效的沟通，不是坚持用自己最习惯的频道广播，而是用跟对方更同频的方式来沟通。</div>
+        <div class="quote-source">来自 <strong>Lesson 01 · 识人</strong></div>
+      </div>
+      <div class="quote-slide">
+        <div class="quote-text">真正的倾听，不是等待说话的机会，而是真正理解对方想表达的意思。</div>
+        <div class="quote-source">来自 <strong>Lesson 03 · 倾听</strong></div>
+      </div>
+      <div class="quote-slide">
+        <div class="quote-text">汇报的本质是管理预期，让上级对进展有掌控感，而不是等到出问题才知道。</div>
+        <div class="quote-source">来自 <strong>Lesson 07 · 同步汇报</strong></div>
+      </div>
+      <div class="quote-slide">
+        <div class="quote-text">表达异议的艺术，是让对方感到你在解决问题，而不是在攻击他。</div>
+        <div class="quote-source">来自 <strong>Lesson 11 · 不同意见</strong></div>
+      </div>
+      <div class="quote-slide">
+        <div class="quote-text">真正的说服，不是用道理压倒对方，而是让对方觉得这个决定是他自己做的。</div>
+        <div class="quote-source">来自 <strong>Lesson 12 · 说服他人</strong></div>
+      </div>
+      <div class="quote-slide">
+        <div class="quote-text">冲突的终点不是分出对错，而是找到双方都能接受的出路，并保住关系。</div>
+        <div class="quote-source">来自 <strong>Lesson 18 · 处理冲突</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="quote-nav" id="quoteNav"></div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-brand">沟通基本功</div>
+  <div class="footer-info">18 Lessons · Communication Fundamentals</div>
+  <div class="footer-num">18</div>
+</footer>
+
+<script>
+// ─── SCROLL PROGRESS ───
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('scrollProgress').style.width = Math.min(pct, 100) + '%';
+});
+
+// ─── FILTER ───
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cardItems = document.querySelectorAll('.card-item');
+const cardCount = document.getElementById('cardCount');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    let visible = 0;
+    cardItems.forEach(card => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    cardCount.textContent = visible;
+  });
+});
+
+// ─── SEARCH ───
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  searchClear.classList.toggle('visible', q.length > 0);
+  filterBtns.forEach(b => b.classList.remove('active'));
+  document.querySelector('[data-filter="all"]').classList.add('active');
+  let visible = 0;
+  cardItems.forEach(card => {
+    const kw = (card.dataset.keywords || '') + ' ' + card.querySelector('.card-title').textContent + ' ' + card.querySelector('.card-subtitle').textContent;
+    const show = !q || kw.toLowerCase().includes(q);
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  cardCount.textContent = visible;
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  searchClear.classList.remove('visible');
+  cardItems.forEach(c => c.classList.remove('hidden'));
+  cardCount.textContent = 18;
+});
+
+// ─── SCENARIO PICKER ───
+document.querySelectorAll('.scenario-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.scenario-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const result = document.getElementById('scenarioResult');
+    result.style.opacity = '0';
+    setTimeout(() => {
+      result.innerHTML = `
+        <div class="sr-label">推荐卡片</div>
+        <div class="sr-title">Lesson ${chip.dataset.lesson} · ${chip.dataset.title}</div>
+        <div class="sr-text">${chip.dataset.tip}</div>
+        <a class="sr-link" href="${chip.dataset.file}" target="_blank">打开卡片 →</a>
+      `;
+      result.style.opacity = '1';
+    }, 180);
+  });
+});
+
+// ─── FORMULA BUILDER ───
+let slots = [null, null, null];
+let activeSlot = null;
+
+const formulaResults = {
+  '识别行为倾向+适配沟通策略+找共同点': '高效识人沟通',
+  '先说结论+给出依据+说明风险': '完美汇报结构',
+  '接住情绪+理解信息+给出行动': '优雅回应批评',
+  '认可出发点+表达异议+提出方案': '建设性异议表达',
+  '承认事实+表达理解+说明改进': '真诚道歉三步',
+  '找共同点+真诚赞美+开放提问': '破冰黄金公式',
+  '承认事实+表达理解+请求原谅': '完整道歉公式',
+  '说明改进+请求原谅+给出行动': '修复关系公式',
+};
+
+function openSlot(idx) {
+  activeSlot = idx;
+  document.querySelectorAll('.fb-slot').forEach((s, i) => {
+    s.style.outline = i === idx ? '2px solid #ffd100' : 'none';
+  });
+}
+
+function selectOption(btn, value) {
+  if (activeSlot === null) {
+    for (let i = 0; i < 3; i++) { if (!slots[i]) { activeSlot = i; break; } }
+  }
+  if (activeSlot === null) return;
+  slots.forEach((s, i) => { if (s === value) slots[i] = null; });
+  slots[activeSlot] = value;
+  activeSlot = null;
+  updateSlots();
+  updateFormulaResult();
+}
+
+function updateSlots() {
+  for (let i = 0; i < 3; i++) {
+    const el = document.getElementById('slot' + i);
+    el.textContent = slots[i] || '选择要素';
+    el.classList.toggle('filled', !!slots[i]);
+    el.style.outline = 'none';
+  }
+  document.querySelectorAll('.fb-option').forEach(opt => {
+    opt.classList.toggle('used', slots.includes(opt.textContent));
+  });
+}
+
+function updateFormulaResult() {
+  const key = slots.filter(Boolean).join('+');
+  const result = document.getElementById('fbResult');
+  if (slots.filter(Boolean).length === 3) {
+    result.textContent = formulaResults[key] || '自定义沟通公式 ✓';
+    result.classList.add('ready');
+  } else {
+    result.textContent = '等待组合…';
+    result.classList.remove('ready');
+  }
+}
+
+function resetFormula() {
+  slots = [null, null, null];
+  activeSlot = null;
+  updateSlots();
+  updateFormulaResult();
+}
+
+// ─── RANDOM SPINNER ───
+const allCards = [
+  { num:'01', name:'识人', sub:'用 DiSC 模型破解沟通密码', file:'lesson-01-disc.html' },
+  { num:'02', name:'破冰', sub:'三步让职场关系快速升温', file:'lesson-02-icebreak.html' },
+  { num:'03', name:'倾听', sub:'听懂话背后的话', file:'lesson-03-listen.html' },
+  { num:'04', name:'回应', sub:'让对方感到被接住', file:'lesson-04-respond.html' },
+  { num:'05', name:'接任务', sub:'除了"收到"，还能回复啥？', file:'lesson-05-task.html' },
+  { num:'06', name:'请教求助', sub:'怎么问才不显得没脑子？', file:'lesson-06-consult.html' },
+  { num:'07', name:'同步汇报', sub:'让上级永远不焦虑', file:'lesson-07-report.html' },
+  { num:'08', name:'回应批评', sub:'被批评时怎么不崩？', file:'lesson-08-criticism.html' },
+  { num:'09', name:'会议发言', sub:'让你的声音被听见', file:'lesson-09-meeting.html' },
+  { num:'10', name:'澄清提问', sub:'怎么提问让理解秒对齐？', file:'lesson-10-clarify.html' },
+  { num:'11', name:'不同意见', sub:'怎么说"我不同意"不伤感情？', file:'lesson-11-disagree.html' },
+  { num:'12', name:'说服他人', sub:'让对方主动说"好"', file:'lesson-12-persuade.html' },
+  { num:'13', name:'给建议', sub:'怎么给建议不让人反感？', file:'lesson-13-advice.html' },
+  { num:'14', name:'点赞', sub:'夸人夸到心坎里', file:'lesson-14-praise.html' },
+  { num:'15', name:'催办', sub:'催人不催坏关系', file:'lesson-15-followup.html' },
+  { num:'16', name:'道歉', sub:'道歉道到对方真的释怀', file:'lesson-16-apology.html' },
+  { num:'17', name:'拒绝', sub:'说"不"而不伤感情', file:'lesson-17-decline.html' },
+  { num:'18', name:'处理冲突', sub:'怎么在冲突里体面收场？', file:'lesson-18-conflict.html' },
+];
+
+function spinCard() {
+  const display = document.getElementById('spinDisplay');
+  const link = document.getElementById('spinLink');
+  display.classList.add('spinning');
+  link.classList.remove('visible');
+  let count = 0;
+  const total = 14 + Math.floor(Math.random() * 10);
+  const iv = setInterval(() => {
+    const r = allCards[Math.floor(Math.random() * allCards.length)];
+    document.getElementById('spinNum').textContent = r.num;
+    document.getElementById('spinName').textContent = r.name;
+    document.getElementById('spinSub').textContent = r.sub;
+    count++;
+    if (count >= total) {
+      clearInterval(iv);
+      const final = allCards[Math.floor(Math.random() * allCards.length)];
+      document.getElementById('spinNum').textContent = final.num;
+      document.getElementById('spinName').textContent = final.name;
+      document.getElementById('spinSub').textContent = final.sub;
+      link.href = final.file;
+      link.classList.add('visible');
+      display.classList.remove('spinning');
+    }
+  }, 75);
+}
+
+// ─── QUOTE CAROUSEL ───
+const slides = document.querySelectorAll('.quote-slide');
+const quoteNav = document.getElementById('quoteNav');
+const quoteTrack = document.getElementById('quoteTrack');
+let currentQ = 0;
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'quote-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => goQ(i));
+  quoteNav.appendChild(dot);
+});
+
+function goQ(idx) {
+  currentQ = idx;
+  quoteTrack.style.transform = `translateX(-${idx * 100}%)`;
+  document.querySelectorAll('.quote-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+setInterval(() => goQ((currentQ + 1) % slides.length), 4500);
+
+// ─── TOOLTIP ───
+const tooltip = document.getElementById('tooltip');
+cardItems.forEach(card => {
+  card.addEventListener('mouseenter', () => { tooltip.textContent = '点击打开卡片'; tooltip.classList.add('visible'); });
+  card.addEventListener('mousemove', e => { tooltip.style.left = (e.clientX + 14) + 'px'; tooltip.style.top = (e.clientY - 28) + 'px'; });
+  card.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+});
+
+// ─── CLICK ANALYTICS (silent) ───
+cardItems.forEach(card => {
+  card.addEventListener('click', () => {
+    const payload = {
+      card: card.getAttribute('href'),
+      num: card.querySelector('.card-num')?.textContent || '',
+      title: card.querySelector('.card-title')?.textContent || '',
+      category: card.dataset.category || '',
+      ts: new Date().toISOString()
+    };
+    fetch('/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).catch(() => {});
+  });
+});
+</script>
+</body>
+</html>

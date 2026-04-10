@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回应：四层对齐法接住模糊指令</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 800px; background: #f5f0e8; font-family: 'Noto Sans SC', sans-serif; }
+  .card { width: 800px; background: #faf7f2; }
+
+  .magazine-header { background: #111; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .magazine-name { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #ffd100; }
+  .issue-info { font-size: 11px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+
+  .hero { padding: 44px 40px 28px; border-bottom: 3px solid #111; }
+  .lesson-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; font-weight: 500; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; line-height: 1.05; color: #111; margin-bottom: 6px; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #555; font-style: italic; margin-bottom: 20px; }
+  .hero-divider { width: 60px; height: 3px; background: #ffd100; margin-bottom: 16px; }
+  .concept-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+  .hero-concept { font-size: 14px; line-height: 1.85; color: #333; max-width: 640px; }
+
+  .formula-block { background: #111; padding: 24px 40px; }
+  .formula-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 8px; }
+  .formula-text { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #fff; line-height: 1.6; }
+  .formula-text span { color: #ffd100; }
+
+  .layers { padding: 0; }
+  .layer-item { display: flex; align-items: stretch; border-bottom: 1px solid #e0d8cc; }
+  .layer-item:last-child { border-bottom: none; }
+  .layer-left { width: 80px; flex-shrink: 0; background: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 8px; gap: 4px; }
+  .layer-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: #ffd100; line-height: 1; }
+  .layer-key { font-size: 11px; color: #888; letter-spacing: 1px; text-align: center; }
+  .layer-content { flex: 1; padding: 20px 28px; }
+  .layer-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 6px; }
+  .layer-title span { color: #b8960a; }
+  .layer-desc { font-size: 13px; color: #444; line-height: 1.8; }
+  .layer-example { font-size: 12px; color: #888; margin-top: 8px; padding-left: 10px; border-left: 2px solid #ffd100; font-style: italic; }
+
+  .pull-quote { background: #ffd100; padding: 28px 40px; text-align: center; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: #111; }
+  .pull-quote-text::before { content: '\201C'; font-size: 28px; vertical-align: -6px; margin-right: 4px; }
+  .pull-quote-text::after { content: '\201D'; font-size: 28px; vertical-align: -6px; margin-left: 4px; }
+
+  .footer { background: #111; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-series { font-size: 11px; letter-spacing: 2px; color: #666; text-transform: uppercase; }
+  .footer-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #ffd100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="magazine-header">
+    <div class="magazine-name">沟通基本功</div>
+    <div class="issue-info">第 04 讲 · 18讲系列</div>
+  </div>
+
+  <div class="hero">
+    <div class="lesson-tag">Lesson 04 · 回应篇</div>
+    <div class="hero-title">回应</div>
+    <div class="hero-subtitle">四层对齐法接住模糊指令</div>
+    <div class="hero-divider"></div>
+    <div class="concept-label">沟通理念</div>
+    <div class="hero-concept">在向上沟通中，模糊指令不是障碍，而是展现专业度的机会。很多人收到模糊指令后，要么直接去做（方向跑偏），要么反复追问（让上级觉得你没有独立思考能力）。真正的高手，是把一团雾吹成一条能走的路。</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-label">沟通公式</div>
+    <div class="formula-text">回应的四层对齐法 = <span>心态对齐</span> + <span>表层对齐</span> + <span>深层对齐</span> + <span>方案对齐</span></div>
+  </div>
+
+  <div class="layers">
+    <div class="layer-item">
+      <div class="layer-left">
+        <div class="layer-num">L1</div>
+        <div class="layer-key">心态</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-title"><span>心态对齐</span>——进入建设性状态</div>
+        <div class="layer-desc">把"这什么意思"转化为"我来搞清楚"。不抱怨模糊，把它当成一道需要解题的题目，带着好奇心去拆解。</div>
+        <div class="layer-example">自问：这个指令背后，对方真正想要的结果是什么？</div>
+      </div>
+    </div>
+    <div class="layer-item">
+      <div class="layer-left">
+        <div class="layer-num">L2</div>
+        <div class="layer-key">表层</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-title"><span>表层对齐</span>——把任务参数讲清楚</div>
+        <div class="layer-desc">确认时间节点、交付范围、质量标准、可用资源。这些是任务的"边界条件"，不确认就开始做，很容易白做。</div>
+        <div class="layer-example">问：这件事最晚什么时候要？交付给谁？格式有要求吗？</div>
+      </div>
+    </div>
+    <div class="layer-item">
+      <div class="layer-left">
+        <div class="layer-num">L3</div>
+        <div class="layer-key">深层</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-title"><span>深层对齐</span>——理解隐含逻辑</div>
+        <div class="layer-desc">用推理去理解"为什么要做这件事"。上级说"做个报告"，背后可能是要给更高层汇报，或者是要推动某个决策。理解了背后的逻辑，才能做出真正有用的东西。</div>
+        <div class="layer-example">推理：这件事是为了支撑哪个更大的目标？</div>
+      </div>
+    </div>
+    <div class="layer-item">
+      <div class="layer-left">
+        <div class="layer-num">L4</div>
+        <div class="layer-key">方案</div>
+      </div>
+      <div class="layer-content">
+        <div class="layer-title"><span>方案对齐</span>——形成行动链条并获得授权</div>
+        <div class="layer-desc">把你的理解和计划说出来，让对方确认。"我打算这样做，你看可以吗？"这一步既是确认，也是在建立信任——让对方知道你想清楚了。</div>
+        <div class="layer-example">说：我的计划是……，预计……完成，你看这个方向对吗？</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pull-quote-text">模糊指令不是障碍，是展现专业度的机会</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-series">沟通基本功 · 18讲系列知识卡片</div>
+    <div class="footer-num">04</div>
+  </div>
+</div>
+</body>
+</html>

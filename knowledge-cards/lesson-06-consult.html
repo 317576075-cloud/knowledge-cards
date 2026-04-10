@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>请教求助：别只说"我不会"，这样请教更高效</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 800px; background: #f5f0e8; font-family: 'Noto Sans SC', sans-serif; }
+  .card { width: 800px; background: #faf7f2; }
+
+  .magazine-header { background: #111; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .magazine-name { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #ffd100; }
+  .issue-info { font-size: 11px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+
+  .hero { padding: 44px 40px 28px; border-bottom: 3px solid #111; }
+  .lesson-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; font-weight: 500; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; line-height: 1.05; color: #111; margin-bottom: 6px; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #555; font-style: italic; margin-bottom: 20px; }
+  .hero-divider { width: 60px; height: 3px; background: #ffd100; margin-bottom: 16px; }
+  .concept-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+  .hero-concept { font-size: 14px; line-height: 1.85; color: #333; max-width: 640px; }
+
+  .formula-block { background: #111; padding: 24px 40px; }
+  .formula-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 8px; }
+  .formula-text { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #fff; line-height: 1.7; }
+  .formula-text span { color: #ffd100; }
+
+  .steps { padding: 0; }
+  .step-item { display: flex; align-items: stretch; border-bottom: 1px solid #e0d8cc; }
+  .step-item:last-child { border-bottom: none; }
+  .step-num-col { width: 72px; flex-shrink: 0; background: #111; display: flex; align-items: center; justify-content: center; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #ffd100; }
+  .step-content { flex: 1; padding: 20px 28px; }
+  .step-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 6px; }
+  .step-title span { color: #b8960a; }
+  .step-desc { font-size: 13px; color: #444; line-height: 1.8; }
+  .step-contrast { display: flex; gap: 16px; margin-top: 10px; }
+  .contrast-bad { flex: 1; font-size: 12px; color: #999; padding: 8px 10px; background: #f5f0e8; }
+  .contrast-good { flex: 1; font-size: 12px; color: #333; padding: 8px 10px; background: #fffbe6; border-left: 2px solid #ffd100; }
+  .contrast-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+
+  .protect-tips { background: #111; padding: 20px 40px; }
+  .pt-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 12px; }
+  .pt-row { display: flex; gap: 0; }
+  .pt-item { flex: 1; padding-right: 20px; border-right: 1px solid #333; }
+  .pt-item:last-child { padding-right: 0; padding-left: 20px; border-right: none; }
+  .pt-item:nth-child(2) { padding: 0 20px; }
+  .pt-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .pt-desc { font-size: 12px; color: #999; line-height: 1.6; }
+
+  .pull-quote { background: #ffd100; padding: 28px 40px; text-align: center; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: #111; }
+  .pull-quote-text::before { content: '\201C'; font-size: 28px; vertical-align: -6px; margin-right: 4px; }
+  .pull-quote-text::after { content: '\201D'; font-size: 28px; vertical-align: -6px; margin-left: 4px; }
+
+  .footer { background: #111; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-series { font-size: 11px; letter-spacing: 2px; color: #666; text-transform: uppercase; }
+  .footer-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #ffd100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="magazine-header">
+    <div class="magazine-name">沟通基本功</div>
+    <div class="issue-info">第 06 讲 · 18讲系列</div>
+  </div>
+
+  <div class="hero">
+    <div class="lesson-tag">Lesson 06 · 请教求助篇</div>
+    <div class="hero-title">请教求助</div>
+    <div class="hero-subtitle">别只说"我不会"，这样请教更高效</div>
+    <div class="hero-divider"></div>
+    <div class="concept-label">沟通理念</div>
+    <div class="hero-concept">请教不是求救，不能只给困惑，而是判断力校准。本质是带着自己的推理过程，请对方帮你校准偏差，而非替你判断。好的请教，让对方觉得你在独立思考；差的请教，让对方觉得你在甩锅。</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-label">沟通公式</div>
+    <div class="formula-text">高质量请教三步法 = <span>准备三件套（任务·依据·初判）</span> + <span>锚定卡点</span> + <span>拿到校准点就停止</span></div>
+  </div>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num-col"><div class="step-num">01</div></div>
+      <div class="step-content">
+        <div class="step-title">带着<span>"任务—依据—初判"</span>三件套来</div>
+        <div class="step-desc">不是"我不会"，是"我做到这里，判断到这里"。把你的思考过程展示出来，让对方知道你已经努力过了，只是在某个点上卡住了。</div>
+        <div class="step-contrast">
+          <div class="contrast-bad"><div class="contrast-label">❌ 低质量</div>"这个我不会，你帮我看看？"</div>
+          <div class="contrast-good"><div class="contrast-label">✓ 高质量</div>"我在做X，我的判断是Y，但在Z这里卡住了，你觉得我的方向对吗？"</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num-col"><div class="step-num">02</div></div>
+      <div class="step-content">
+        <div class="step-title">讲清<span>"卡点"</span>在哪里</div>
+        <div class="step-desc">具体到一个变量、一个参数、一个假设，不是泛泛而谈。卡点越具体，对方越容易帮你，也越不会觉得你在浪费他的时间。</div>
+        <div class="step-contrast">
+          <div class="contrast-bad"><div class="contrast-label">❌ 模糊卡点</div>"整体感觉哪里不对，但说不清楚"</div>
+          <div class="contrast-good"><div class="contrast-label">✓ 精准卡点</div>"我不确定的是：在A和B两个方案之间，优先级应该怎么判断"</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num-col"><div class="step-num">03</div></div>
+      <div class="step-content">
+        <div class="step-title">拿到<span>"校准点"</span>就停止</div>
+        <div class="step-desc">请教不是要答案，是要下一步应走的方向。拿到方向就结束，不要把对方变成你的外包执行者。记得闭环——下次见面时反馈上次请教的进展。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="protect-tips">
+    <div class="pt-label">三个保护提示</div>
+    <div class="pt-row">
+      <div class="pt-item">
+        <div class="pt-title">挑时机</div>
+        <div class="pt-desc">不要在上级注意力不可用时请教，选对时机事半功倍</div>
+      </div>
+      <div class="pt-item">
+        <div class="pt-title">控时长 10–15分钟</div>
+        <div class="pt-desc">越短越聚焦，越短越不越界，超时是在消耗信任</div>
+      </div>
+      <div class="pt-item">
+        <div class="pt-title">必须闭环</div>
+        <div class="pt-desc">反馈上次请教的进展，让对方知道他的帮助有价值</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pull-quote-text">请教不是要答案，是要下一步应走的方向</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-series">沟通基本功 · 18讲系列知识卡片</div>
+    <div class="footer-num">06</div>
+  </div>
+</div>
+</body>
+</html>
