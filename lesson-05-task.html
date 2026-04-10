@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>接任务：除了"收到"，接任务还能回复啥？</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 800px; background: #f5f0e8; font-family: 'Noto Sans SC', sans-serif; }
+  .card { width: 800px; background: #faf7f2; }
+
+  .magazine-header { background: #111; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .magazine-name { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: #ffd100; }
+  .issue-info { font-size: 11px; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+
+  .hero { padding: 44px 40px 28px; border-bottom: 3px solid #111; }
+  .lesson-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; font-weight: 500; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; line-height: 1.05; color: #111; margin-bottom: 6px; }
+  .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: #555; font-style: italic; margin-bottom: 20px; }
+  .hero-divider { width: 60px; height: 3px; background: #ffd100; margin-bottom: 16px; }
+  .concept-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+  .hero-concept { font-size: 14px; line-height: 1.85; color: #333; max-width: 640px; }
+
+  .formula-block { background: #111; padding: 24px 40px; }
+  .formula-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 8px; }
+  .formula-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; }
+  .formula-text span { color: #ffd100; }
+
+  .three-a { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 1px solid #e0d8cc; }
+  .a-item { padding: 24px 22px; border-right: 1px solid #e0d8cc; }
+  .a-item:last-child { border-right: none; }
+  .a-letter { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 900; color: #ffd100; line-height: 1; margin-bottom: 4px; }
+  .a-word { font-size: 12px; font-weight: 700; color: #111; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+  .a-desc { font-size: 13px; color: #444; line-height: 1.75; }
+  .a-example { font-size: 12px; color: #888; margin-top: 8px; padding-left: 10px; border-left: 2px solid #ffd100; font-style: italic; }
+
+  .insight { padding: 20px 40px; background: #111; }
+  .insight-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ffd100; margin-bottom: 10px; }
+  .insight-text { font-size: 14px; color: #ccc; line-height: 1.8; }
+  .insight-text strong { color: #ffd100; }
+
+  .pull-quote { background: #ffd100; padding: 28px 40px; text-align: center; }
+  .pull-quote-text { font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; line-height: 1.6; color: #111; }
+  .pull-quote-text::before { content: '\201C'; font-size: 28px; vertical-align: -6px; margin-right: 4px; }
+  .pull-quote-text::after { content: '\201D'; font-size: 28px; vertical-align: -6px; margin-left: 4px; }
+
+  .footer { background: #111; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-series { font-size: 11px; letter-spacing: 2px; color: #666; text-transform: uppercase; }
+  .footer-num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: #ffd100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="magazine-header">
+    <div class="magazine-name">沟通基本功</div>
+    <div class="issue-info">第 05 讲 · 18讲系列</div>
+  </div>
+
+  <div class="hero">
+    <div class="lesson-tag">Lesson 05 · 接任务篇</div>
+    <div class="hero-title">接任务</div>
+    <div class="hero-subtitle">除了"收到"，接任务还能回复啥？</div>
+    <div class="hero-divider"></div>
+    <div class="concept-label">沟通理念</div>
+    <div class="hero-concept">每一次把任务接好、接稳、接明白，都是展现你的思考深度、建立可靠形象的信任增值时刻。接任务不是被动接收，而是主动要信息、定节奏——你要的信息越多，节奏越清晰，做起来越顺，返工的概率越低。</div>
+  </div>
+
+  <div class="formula-block">
+    <div class="formula-label">沟通公式</div>
+    <div class="formula-text">3A接任务法 = <span>态度 Attitude</span> + <span>对齐 Alignment</span> + <span>增量 Addition</span></div>
+  </div>
+
+  <div class="three-a">
+    <div class="a-item">
+      <div class="a-letter">A</div>
+      <div class="a-word">Attitude · 态度</div>
+      <div class="a-desc">先拿下态度分。展现你积极接活的意愿，让对方感受到你重视这件事，而不是被动应付。</div>
+      <div class="a-example">说："好的，这件事我来负责，我马上梳理一下。"</div>
+    </div>
+    <div class="a-item">
+      <div class="a-letter">A</div>
+      <div class="a-word">Alignment · 对齐</div>
+      <div class="a-desc">用自己的话复述任务，确保理解一致。复述不是重复，而是把你的理解说出来让对方确认，暴露潜在的偏差。</div>
+      <div class="a-example">说："我理解这件事是……，交付物是……，对吗？"</div>
+    </div>
+    <div class="a-item">
+      <div class="a-letter">A</div>
+      <div class="a-word">Addition · 增量</div>
+      <div class="a-desc">主动要信息，提升完成质量。问清楚优先级、参考案例、关键限制，把不确定性消灭在开始之前。</div>
+      <div class="a-example">问："有没有可以参考的案例？这件事的优先级是……？"</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="insight-label">核心洞察</div>
+    <div class="insight-text">接任务的质量，决定了做任务的效率。<strong>一次好的接任务对话，能把返工概率降低80%。</strong>把"收到"升级为"3A回应"，是职场新人最快建立靠谱形象的方式。</div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pull-quote-text">接任务不是被动接收，而是主动要信息、定节奏</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-series">沟通基本功 · 18讲系列知识卡片</div>
+    <div class="footer-num">05</div>
+  </div>
+</div>
+</body>
+</html>
